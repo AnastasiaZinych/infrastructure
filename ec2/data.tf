@@ -1,5 +1,5 @@
 # pulls vpc inf
-data "terraform_remote_state" "this" {
+data "terraform_remote_state" "vpc" {
   backend = "remote"
 
   config = {
@@ -11,7 +11,7 @@ data "terraform_remote_state" "this" {
   }
 }
 # pulls rds inf
-data "terraform_remote_state" "this" {
+data "terraform_remote_state" "rds" {
   backend = "remote"
 
   config = {
