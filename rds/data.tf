@@ -10,15 +10,3 @@ data "terraform_remote_state" "vpc" {
     }
   }
 }
-# pulls rds inf
-data "terraform_remote_state" "rds" {
-  backend = "remote"
-
-  config = {
-    organization = "zinychnastya"
-
-    workspaces = {
-      name = "rds"
-    }
-  }
-}
