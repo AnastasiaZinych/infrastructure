@@ -1,8 +1,24 @@
-resource "aws_db_subnet_group" "default" {
-  name       = "wordpress"
-  subnet_ids = [
-    data.terraform_remote_state.this.outputs.private_subnets[0],
-    data.terraform_remote_state.this.outputs.private_subnets[1],
-    data.terraform_remote_state.this.outputs.private_subnets[2]
-  ]
+# pulls vpc inf
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+
+  config = {
+    organization = "zinychnastya"
+
+    workspaces = {
+      name = "vpc"
+    }
+  }
+}
+# pulls rds inf
+data "terraform_remote_state" "rds" {
+  backend = "remote"
+
+  config = {
+    organization = "zinychnastya"
+
+    workspaces = {
+      name = "rds"
+    }
+  }
 }
